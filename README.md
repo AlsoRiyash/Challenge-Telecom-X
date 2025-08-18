@@ -2,23 +2,14 @@
 
 🔹 1. Introdução
 
-O presente relatório tem como objetivo analisar os dados da empresa TelecomX após um processo de ETL (Extração, Transformação e Carga). O foco principal é entender os padrões de cancelamento de clientes (churn) e como variáveis contratuais, demográficas e de serviços influenciam esse comportamento.
+Relatório tem como objetivo analisar os dados da empresa TelecomX após um processo de ETL (Extração, Transformação e Carga). O foco principal é entender os padrões de cancelamento de clientes (churn) e como variáveis contratuais, demográficas e de serviços influenciam esse comportamento.
 
 🔹 2. Pipeline ETL
 
-Extração Os dados foram extraídos de um arquivo JSON fornecido pela empresa. Transformação Normalização de colunas aninhadas. Tradução e padronização de valores (Yes/No → Sim/Não). Conversão de variáveis numéricas (Meses_Permanencia, Cobranca_Mensal, Cobranca_Total). Criação da variável binária Cancelou (1 = cancelou, 0 = não cancelou). Carga Dados finais armazenados em .csv e .parquet para uso futuro.
+Os dados foram extraídos de um arquivo JSON fornecido pela empresa. Transformação Normalização de colunas aninhadas. Tradução e padronização de valores (Yes/No → Sim/Não). Conversão de variáveis numéricas (Meses_Permanencia, Cobranca_Mensal, Cobranca_Total). Criação da variável binária Cancelou (1 = cancelou, 0 = não cancelou). Carga Dados finais armazenados em .csv e .parquet para uso futuro.
 
+<img width="580" height="455" alt="image" src="https://github.com/user-attachments/assets/f696546b-6604-4398-83fc-849fb2fe7776" />
 
-[ ]
-churn_counts = df["Cancelou"].value_counts()
-
-sns.barplot(x=churn_counts.index, y=churn_counts.values, palette=["#66c2a5", "#fc8d62"])
-plt.xticks([0,1], ["Não cancelou", "Cancelou"])
-plt.ylabel("Quantidade de clientes")
-plt.title("Distribuição de Cancelamento de Clientes")
-plt.show()
-
-(churn_counts / churn_counts.sum()).map("{:.1%}".format)
 
 Aproximadamente 26% dos clientes cancelaram e 74% permaneceram.
 
