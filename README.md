@@ -14,13 +14,8 @@ Os dados foram extraídos de um arquivo JSON fornecido pela empresa. Transforma�
 Aproximadamente 26% dos clientes cancelaram e 74% permaneceram.
 
 
-[ ]
-sns.countplot(data=df, x="Contrato", hue="Cancelou", palette="pastel")
-plt.title("Churn por Tipo de Contrato")
-plt.xlabel("Tipo de Contrato")
-plt.ylabel("Clientes")
-plt.legend(title="Cancelou", labels=["Não", "Sim"])
-plt.show()
+<img width="580" height="455" alt="image" src="https://github.com/user-attachments/assets/eb00e59b-ef74-43a0-a1c2-3f4e1fbe7190" />
+
 
 Clientes com contrato Mês a mês apresentam muito mais cancelamentos.
 
