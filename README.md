@@ -22,66 +22,36 @@ Clientes com contrato Mês a mês apresentam muito mais cancelamentos.
 Contratos de 1 ano ou 2 anos têm churn muito menor, sugerindo maior fidelização.
 
 
-[ ]
-sns.boxplot(data=df, x="Cancelou", y="Cobranca_Mensal", palette=["#8da0cb", "#e78ac3"])
-plt.xticks([0,1], ["Não cancelou", "Cancelou"])
-plt.ylabel("Cobrança Mensal (R$)")
-plt.title("Cobrança Mensal x Cancelamento")
-plt.show()
+<img width="571" height="455" alt="image" src="https://github.com/user-attachments/assets/f3e7ee10-6603-42a7-8b8f-c65e14a166a2" />
+
 
 Clientes que pagam menos por mês cancelam com maior frequência.
 
 Sugere que usuários de planos básicos estão menos satisfeitos ou menos engajados.
 
 
-[ ]
-servicos = ["Fatura_Eletronica","Telefone","Internet",
-            "Seguranca_Online","Backup_Online","Protecao_Dispositivo",
-            "Suporte_Tecnico","Streaming_TV","Streaming_Filmes"]
+<img width="1389" height="1989" alt="image" src="https://github.com/user-attachments/assets/50c82f85-9864-427a-92bc-16189cdd0952" />
 
-fig, axes = plt.subplots(5, 2, figsize=(14,20))
-axes = axes.flatten()
-
-for i, serv in enumerate(servicos):
-    sns.countplot(data=df, x=serv, hue="Cancelou", ax=axes[i], palette="Set2")
-    axes[i].set_title(f"Churn x {serv}")
-    axes[i].legend(title="Cancelou", labels=["Não","Sim"])
-
-plt.tight_layout()
-plt.show()
 
 Clientes sem serviços adicionais (backup, suporte, segurança) cancelam mais.
 
 Quanto mais serviços extras contratados, menor a probabilidade de churn.
 
 
-[ ]
-sns.histplot(data=df, x="Meses_Permanencia", hue="Cancelou", multiple="stack", bins=30, palette="coolwarm")
-plt.title("Tempo de Permanência x Cancelamento")
-plt.xlabel("Meses de permanência")
-plt.ylabel("Clientes")
-plt.show()
+<img width="580" height="456" alt="image" src="https://github.com/user-attachments/assets/1917ea37-267b-40ec-a141-b56e1cfc8792" />
+
 
 Muitos cancelamentos ocorrem nos primeiros meses de contrato.
 
 Após longos períodos (acima de 2 anos), a taxa de churn cai bastante.
 
 
-[ ]
-num_cols = ["Meses_Permanencia", "Cobranca_Mensal", "Cobranca_Total"]
-corr = df[num_cols].corr()
+<img width="641" height="435" alt="image" src="https://github.com/user-attachments/assets/6dd9ee5b-4a22-42e6-87a4-d32652f3b041" />
 
-sns.heatmap(corr, annot=True, cmap="coolwarm")
-plt.title("Matriz de Correlação")
-plt.show()
 
 Cobranca_Total tem forte correlação positiva com Meses_Permanencia.
 
 Clientes que ficam mais tempo, naturalmente acumulam mais cobranças.
-
-
-[ ]
-df.groupby("Cancelou")[["Meses_Permanencia","Cobranca_Mensal","Cobranca_Total"]].median()
 
 Resumo:
 
